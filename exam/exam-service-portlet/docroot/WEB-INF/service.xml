@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.justonetech.liferay.exam">
+	<author>fanqi</author>
+	<namespace>EXAM</namespace>
+	<entity name="Clazz" local-service="true" remote-service="false">
+		<!-- PK fields -->
+		<column name="clazzId" type="long" primary="true"></column>
+		<!-- Group instance -->
+		<column name="groupId" type="long"></column>
+		<!-- Audit fields -->
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- Other fields -->
+		<column name="name" type="String"></column>
+	</entity>
+	<entity name="Course" local-service="true" remote-service="false">
+		<!-- PK fields -->
+		<column name="courseId" type="long" primary="true"></column>
+		<!-- Group instance -->
+		<column name="groupId" type="long"></column>
+		<!-- Audit fields -->
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- Other fields -->
+		<column name="name" type="String"></column>
+		<column name="teacher" type="String"></column>
+		<column name="dayOfWeek" type="int"></column>
+		<column name="startDate" type="String"></column>
+		<column name="endDate" type="String"></column>
+		<column name="limitCount" type="int"></column>
+		<column name="isMain" type="int"></column>
+		<column name="students" type="Collection" entity="Student"
+			mapping-table="Students_Courses" />
+	</entity>
+	<entity name="Student" local-service="true" remote-service="false">
+		<!-- PK fields -->
+		<column name="studentId" type="long" primary="true"></column>
+		<!-- Group instance -->
+		<column name="groupId" type="long"></column>
+		<!-- Audit fields -->
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- Other fields -->
+		<column name="code" type="String"></column>
+		<column name="name" type="String"></column>
+		<column name="gender" type="String"></column>
+		<column name="clazzId" type="long"></column>
+		<column name="courses" type="Collection" entity="Course"
+			mapping-table="Students_Courses" />
+	</entity>
+</service-builder>
